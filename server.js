@@ -11,6 +11,14 @@ var fs = require('fs');
 
 var app = express();
 
+mysqlClient = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    port: 3306,
+    database: 'mission4'
+});
+
 app.use(bodyParser());
 app.use(cookieParser());
 app.use(session({
@@ -22,9 +30,10 @@ app.use(session({
 
 /*
 	--- MISSION 4 : StifCo -----
-		-- AUTEUR --
+		-- AUTEURS --
 	
 	-Gatien Boquet
+    -Bastien Le Bret
 
 		-- RAPPEL --
 	- :8080 = DEV
@@ -53,6 +62,15 @@ app.get('/inscription', function(req, res){
 	res.render('inscription.ejs');
 });
 
+app.post('/ajoutDemande', function (req, res) {
+    mysqlClient.query('SELECT libelle from gare', function (error, resQuery) {
+        if (error)
+            console.log(error);
+        else
+            res.render('crudOffer.ejs', { 'req': resQuery });
+    });
+});
+
 //Foutre dans un objet
 app.post('/login', function(req, res){
 		
@@ -75,15 +93,6 @@ app.post('/login', function(req, res){
 		}
 		
 		//SQL DANS LA DB
-		var mysqlClient = mysql.createConnection({
-                        host: '127.0.0.1',
-                        user: 'root',
-                        password: '',
-                        port: 3306,
-                        database: 'mission4'
-        });
-		
-		
 		mysqlClient.query("SELECT Ncarte,password FROM utilisateurs WHERE Ncarte='" + IDnavigo + "' AND password='" + password + "';",function(error,res){
 			if(error){
 				console.log(error);
