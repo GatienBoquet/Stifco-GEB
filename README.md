@@ -1,2 +1,12 @@
 # Stifco-GEB
-Stifco - Mission 4 - GEB - Node.JS 
+
+-- StifCo Mission 4 --
+
+
+  -- Auteurs --
+
+-Bastien Le Bret
+-Erwann maugère 
+-Gatien Boquet 
+
+
