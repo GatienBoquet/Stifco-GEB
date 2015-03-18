@@ -1,0 +1,19 @@
+{
+	"name": "stifco",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"express": "*",
+		"ejs": "*",
+		"cookie-session": "*",
+		"body-parser": "*",
+		"socket.io" : "*",
+		"express-session" : "*",
+		"mysql" : "*",
+		"fs" : "*",
+		"ent": "*",
+		"cookie-parser" : "*"
+	},
+	"author": "Gatien Boquet <gatien.boquet@gmail.com>, Bastien Le Bret, Erwann maugère",
+	"description": "Mission 4 - GEB - 2015 - BTS SIO"
+}
