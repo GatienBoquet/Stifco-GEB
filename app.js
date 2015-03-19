@@ -30,9 +30,9 @@ app.use(session({
 	  cookie: { secure: true }
 }))
 mysqlClient = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
+    host: 'localhost',
+    user: 'bastos',
+    password: 'atb9bjs3',
     port: 3306,
     database: 'mission4'
 });

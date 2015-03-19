@@ -59,13 +59,14 @@ exports.addinscription = function(req, res){
 };
 
 
-exports.ajoutDemande = function(res,req){
- 
- mysqlClient.query('SELECT libelle from gare', function (error, resQuery) {
-        if (error)
-            console.log(error);
+exports.ajoutDemande = function(req,res){
+ mysqlClient.query('SELECT libelle from gare', function (error, rows) {
+        if (error){
+	   console.log(error);
+	    res.render('ajoutDemande');
+	}
         else
-            res.render('crudOffer', { 'req': resQuery });
+            res.render('ajoutDemande', { 'req': rows });
     });
 	
 };
