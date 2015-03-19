@@ -54,12 +54,12 @@ exports.postlogin = function(req, res){
 
 
 exports.addinscription = function(req, res){
-	
+	res.render('index');
 	
 };
 
 
-exports.ajoutDemande = function(res,req){
+exports.ajoutDemande = function(req, res){
  
  mysqlClient.query('SELECT libelle from gare', function (error, resQuery) {
         if (error)
@@ -69,3 +69,24 @@ exports.ajoutDemande = function(res,req){
     });
 	
 };
+
+
+exports.getOffres = function(req, res){
+    mysqlClient.query("SELECT * FROM offres", function(error, rows){
+        if(error){
+			console.log(error);
+			res.render('offre');
+		}
+		else{
+		    console.log(rows);
+			res.render('offre', {'offres': rows});
+		}
+	});
+};
+
+
+
+
+
+
+

@@ -29,10 +29,11 @@ app.use(session({
 	  saveUninitialized: true,
 	  cookie: { secure: true }
 }))
+
 mysqlClient = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'sio',
     port: 3306,
     database: 'mission4'
 });
@@ -48,6 +49,8 @@ app.get('/inscription', routes.inscription);
 
 app.post('/login', routes.postlogin);
 app.get('/ajoutDemande', routes.ajoutDemande);
+
+app.get('/offres', routes.getOffres);
 
 
 // -- Fin Routes --
