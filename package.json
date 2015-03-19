@@ -14,6 +14,6 @@
 		"ent": "*",
 		"cookie-parser" : "*"
 	},
-	"author": "Gatien Boquet <gatien.boquet@gmail.com>, Bastien Le Bret, Erwann maugère",
+	"author": "Gatien Boquet <gatien.boquet@gmail.com>, Bastien Le Bret <lebretbastien@gmail.com>, Erwann maugère",
 	"description": "Mission 4 - GEB - 2015 - BTS SIO"
 }

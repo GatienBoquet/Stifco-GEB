@@ -37,11 +37,15 @@
 					<div class="form-inline">
 						<div class="form-group">
 							<label class="control-label" for="gare">Gare :</label>
+							<% if (typeof req == 'undefined'){ %>
+							<p>Une erreur est survenue</p>
+							<% }else{ %>
 							<select>
 								<% for(var i = 0; i < req.length; i++){ %>
 								<option id='<%= i %>' value='<%= req[i].libelle %>'><%= req[i].libelle %></option>
 								<% } %>
 							</select>
+							<% } %>
 						</div>
 					</div>
 					<hr />
