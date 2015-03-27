@@ -54,4 +54,5 @@ function dtow(date){
         d.setDate(4); // Thu in Week 1
 
         return Math.round((ms - d.valueOf()) / (7 * 864e5)) + 1;
+	}
 }
