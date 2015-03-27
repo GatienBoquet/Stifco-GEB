@@ -16,7 +16,6 @@ function parseAndStore(json){
 	
 	var mysqlClient = mysql.createConnection({
 	    host: 'localhost',
-	    user: 'bastos',
 	    password: 'atb9bjs3',
 	    port: 3306,
 	    database: 'mission4'
