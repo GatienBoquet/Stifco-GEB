@@ -2,7 +2,8 @@
 var http = require('http');
 var express = require('express');
 var mysql = require('mysql');
-
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
 
 var app = express();
 var server = app.listen(8080);
@@ -19,6 +20,13 @@ require('./routes/inscription')(app, io);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
+app.use(expressSession({
+	secret: 'geb',
+	resave: true,
+	saveUninitialized: true
+}))
+
 
 mysqlClient = mysql.createConnection({
     host: 'localhost',

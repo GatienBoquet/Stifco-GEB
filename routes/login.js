@@ -2,8 +2,9 @@
 module.exports = function(app, io){
 	app.get('/login', function(req, res){
 		res.render('login');
-		io.sockets.on('connection', function(socket){
-			socket.on('login', function(login){
+		req.session.name = "";
+		io.sockets.on('connection', function(socket, req){
+			socket.on('login', function(login, req){
 				
 				console.log(login);
 				
@@ -15,7 +16,7 @@ module.exports = function(app, io){
 						console.log("Login : " + IDnavigo);
 						console.log("Password : " + password);
 					}else{
-						req.session.id  = login.idnavigo;
+						req.session.name  = IDnavigo;
 						console.log("nice");
 					
 					}
