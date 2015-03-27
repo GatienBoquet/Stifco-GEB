@@ -50,12 +50,21 @@
 					<div class="form-inline">
 						<div class="form-group">
 							<label class="control-label" for="gare">Gare :</label>
+<<<<<<< HEAD:views/ajoutDemande.ejs
 							<% if (typeof gare == 'undefined'){ %>
 							<p>Une erreur est survenue</p>
 							<% }else{ %>
 							<select id="gare">
 								<% for(var i = 0; i < gare.length; i++){ %>
 								<option id='<%= gare[i].id %>' value='<%= gare[i].libelle %>'><%= gare[i].libelle %></option>
+=======
+							<% if (typeof req == 'undefined'){ %>
+							<p>Une erreur est survenue</p>
+							<% }else{ %>
+							<select>
+								<% for(var i = 0; i < req.length; i++){ %>
+								<option id='<%= i %>' value='<%= req[i].libelle %>'><%= req[i].libelle %></option>
+>>>>>>> origin/master:views/ajoutDemande.ejs
 								<% } %>
 							</select>
 							<% } %>
