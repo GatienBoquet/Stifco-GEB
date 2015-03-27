@@ -1,3 +1,5 @@
-exports.crud = function(req, res){
-	res.render('offre');
+module.exports = function(app, io){
+	app.get('/offre', function(req, res){
+		res.render('offre');
+	});
 };

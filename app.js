@@ -12,6 +12,7 @@ require('./routes')(app, io);
 require('./routes/login')(app, io);
 require('./routes/demande')(app, io);
 require('./routes/offre')(app, io);
+require('./routes/inscription')(app, io);
 
 
 // -- Configuration --
@@ -21,8 +22,8 @@ app.use(express.static(__dirname + '/public'));
 
 mysqlClient = mysql.createConnection({
     host: 'localhost',
-    user: 'bastos',
-    password: 'atb9bjs3',
+    user: 'root',
+    password: '',
     port: 3306,
     database: 'mission4'
 });

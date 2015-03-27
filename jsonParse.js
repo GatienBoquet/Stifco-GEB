@@ -16,7 +16,8 @@ function parseAndStore(json){
 	
 	var mysqlClient = mysql.createConnection({
 	    host: 'localhost',
-	    password: 'atb9bjs3',
+	    user: 'root',
+	    password: '',
 	    port: 3306,
 	    database: 'mission4'
 	});
@@ -32,7 +33,7 @@ function parseAndStore(json){
 		var ville = e.fields.commune;
 		var codePostal = e.fields.code_insee_commune;
 		
-		mysqlClient.query("INSERT INTO Ville(libelle, codePostal) VALUE(\"" + ville + "\", '" + codePostal + "');", function(err, res){
+		mysqlClient.query("INSERT INTO Ville(libelle, codePostale) VALUE(\"" + ville + "\", '" + codePostal + "');", function(err, res){
 		    if(!err || err.errno === 1062){
 		        mysqlClient.query("SELECT id FROM Ville WHERE libelle = \"" + ville + "\";", function(err, row){
 		            if(err){
