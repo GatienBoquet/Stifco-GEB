@@ -67,12 +67,17 @@
 	});
 	
 	socket.on('Error', function(){
-		alert("error");
+		$('#navigofeed').attr('class', 'glyphicon glyphicon-remove form-control-feedback');
+		$('#navigoclass').attr('class', 'form-group has-error has-feedback');
+		$('#navigolabel').text("C'est mauvais");
+		$('#mdpclass').attr('class', 'form-group has-error has-feedback');
+		$('#mdpfeed1').attr('class', 'glyphicon glyphicon-remove form-control-feedback');
 	
 	});
 	
 	socket.on('good', function(){
-			
+		//alert(1);
+		document.location.href= "../";
 	});
 	
 	
@@ -82,6 +87,7 @@
 		socket.emit('login', {'idnavigo': navigovalue, 'mdp' : mdp});
 		
 	});
+	
 	
 	//success
 	//$('#navigofeed').attr('class', 'glyphicon glyphicon-ok form-control-feedback');
