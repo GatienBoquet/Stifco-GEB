@@ -9,6 +9,14 @@ var app = express();
 var server = app.listen(8080);
 var io = require('socket.io').listen(server);
 
+app.use(cookieParser());
+app.use(expressSession({
+	path    : '/',
+	secret: 'geb',
+	resave: true,
+	saveUninitialized: true
+}))
+
 require('./routes')(app, io);
 require('./routes/login')(app, io);
 require('./routes/demande')(app, io);
@@ -20,12 +28,7 @@ require('./routes/inscription')(app, io);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-app.use(cookieParser());
-app.use(expressSession({
-	secret: 'geb',
-	resave: true,
-	saveUninitialized: true
-}))
+
 
 
 mysqlClient = mysql.createConnection({

@@ -23,7 +23,7 @@ module.exports = function(app, io){
 	});
 
 	io.sockets.on('connection', function(socket){
-		console.log('Ici l\'id du mec');
+		//console.log('Ici l\'id du mec');
 	
 		socket.on('addOffer', function(offer){
 			var week = dtow(offer.date);
