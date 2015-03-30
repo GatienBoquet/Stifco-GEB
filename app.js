@@ -33,8 +33,8 @@ app.use(express.static(__dirname + '/public'));
 
 mysqlClient = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'bastos',
+    password: 'atb9bjs3',
     port: 3306,
     database: 'mission4'
 });

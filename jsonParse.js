@@ -16,8 +16,8 @@ function parseAndStore(json){
 	
 	var mysqlClient = mysql.createConnection({
 	    host: 'localhost',
-	    user: 'root',
-	    password: '',
+	    user: 'bastos',
+	    password: 'atb9bjs3',
 	    port: 3306,
 	    database: 'mission4'
 	});
@@ -33,16 +33,16 @@ function parseAndStore(json){
 		var ville = e.fields.commune;
 		var codePostal = e.fields.code_insee_commune;
 		
-		mysqlClient.query("INSERT INTO Ville(libelle, codePostale) VALUE(\"" + ville + "\", '" + codePostal + "');", function(err, res){
+		mysqlClient.query("INSERT INTO ville(libelle, codePostale) VALUE(\"" + ville + "\", '" + codePostal + "');", function(err, res){
 		    if(!err || err.errno === 1062){
-		        mysqlClient.query("SELECT id FROM Ville WHERE libelle = \"" + ville + "\";", function(err, row){
+		        mysqlClient.query("SELECT id FROM ville WHERE libelle = \"" + ville + "\";", function(err, row){
 		            if(err){
 		                console.log("\nselect id...");
 		                console.log(err);
 		            }
 		            else{
 		                var villeId = row[0].id;
-		                mysqlClient.query("INSERT INTO Gare(libelle, code_uic, zoneNavigo, latitude, longitude, id_ville) VALUES('" + libelle + "', '" + code_uic + "', " + zone_navigo + ", " + latitude + ", " + longitude + ", " + villeId +");",
+		                mysqlClient.query("INSERT INTO gare(libelle, code_uic, zoneNavigo, latitude, longitude, id_ville) VALUES('" + libelle + "', '" + code_uic + "', " + zone_navigo + ", " + latitude + ", " + longitude + ", " + villeId +");",
 		                    function(error, res){
 		                        if(error){
 		                            console.log("\ninsert gare...");

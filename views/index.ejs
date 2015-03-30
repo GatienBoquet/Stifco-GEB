@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<h1>Mission 4 - StifCo - WIP</h1>
 		<h2>Salut <%=  prenom  %> (ID: <%= idnavigo %>)</h2>
+		<% if(idnavigo == 0){ %>
 		<a href="/login">Login</a>
 		<br>
 		<a href="/inscription">Inscription</a>
+		<% }else{ %>
+		<br>
+		<a href="/index">Déconnexion</a>
 		<br>
 		<a href="/ajoutDemande">Ajout Demande</a>
 		<br>
 		<a href="/voirDemande"> Voir Demande</a>
 		<br>
 		<a href="/offres"> Voir Offres</a>
+		<% } %>
 	</body>
 </html>

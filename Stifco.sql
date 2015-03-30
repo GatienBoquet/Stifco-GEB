@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `Demande`
 --
 
-CREATE TABLE IF NOT EXISTS `Demande` (
+CREATE TABLE IF NOT EXISTS `demande` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_demandeur` int(11) NOT NULL,
   `id_ville` int(11) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `Demande` (
 -- Structure de la table `Gare`
 --
 
-CREATE TABLE IF NOT EXISTS `Gare` (
+CREATE TABLE IF NOT EXISTS `gare` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) NOT NULL,
   `code_uic` int(11) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `Gare` (
 -- Structure de la table `Offre`
 --
 
-CREATE TABLE IF NOT EXISTS `Offre` (
+CREATE TABLE IF NOT EXISTS `offre` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_offreur` int(11) NOT NULL,
   `nbPlace` int(11) NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `Offre` (
 -- Structure de la table `Offre_Demande`
 --
 
-CREATE TABLE IF NOT EXISTS `Offre_Demande` (
+CREATE TABLE IF NOT EXISTS `offre_Demande` (
   `id_demande` int(11) NOT NULL,
   `id_offre` int(11) NOT NULL,
   PRIMARY KEY (`id_demande`,`id_offre`)
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `Offre_Demande` (
 -- Structure de la table `Offre_Demandeur`
 --
 
-CREATE TABLE IF NOT EXISTS `Offre_Demandeur` (
+CREATE TABLE IF NOT EXISTS `offre_Demandeur` (
   `id_offre` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `accepte` tinyint(1) NOT NULL,
@@ -98,16 +98,17 @@ CREATE TABLE IF NOT EXISTS `Offre_Demandeur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Utitlisateur`
+-- Structure de la table `Utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `Utitlisateur` (
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `numCarteNavigo` int(11) NOT NULL,
   `motDePasse` varchar(255) NOT NULL,
   `id_ville` int(11) NOT NULL,
+  `mail` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -117,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `Utitlisateur` (
 -- Structure de la table `Ville`
 --
 
-CREATE TABLE IF NOT EXISTS `Ville` (
+CREATE TABLE IF NOT EXISTS `ville` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) NOT NULL,
   `codePostale` varchar(5) NOT NULL,

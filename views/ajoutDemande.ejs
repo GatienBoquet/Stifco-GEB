@@ -2,7 +2,7 @@
 <html>
 	<head>
 	    <meta charset="utf-8" />
-	    <title>Login StifCo</title>
+	    <title>Ajout d'une demande de trajet</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
@@ -79,7 +79,8 @@
 		        socket = io.connect('http://localhost:8080');
 			
 			$('#add').on('click', function(){
-				socket.emit('addorder', { 'heureDep': $('#heureDep').val(), 'heureRet': $('#heureRet').val(), 'ville': $($('#ville').children()[0]).attr('id'), 'gare': $($('#gare').children()[0]).attr('id'), 'date': $('#date').val() });
+				console.log('Emit offer');
+				socket.emit('addOffer', { 'heureDep': $('#heureDep').val(), 'heureRet': $('#heureRet').val(), 'ville': $($('#ville').children()[0]).attr('id'), 'gare': $($('#gare').children()[0]).attr('id'), 'date': $('#date').val() });
 			});
 
 			socket.on('addOfferDone', function(){

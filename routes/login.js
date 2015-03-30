@@ -8,13 +8,13 @@ module.exports = function(app, io){
 					console.log("LOGIN WORK IN PROGRESS");
 					var IDnavigo = login.idnavigo;
 					var password = login.mdp;
-					mysqlClient.query("SELECT numCarteNavigo,motDePasse,id,nom,prenom FROM utitlisateur WHERE numCarteNavigo='" + IDnavigo + "' AND motDePasse='" + password + "';",function(error, rows, res){
+					mysqlClient.query("SELECT numCarteNavigo,motDePasse,id,nom,prenom FROM utilisateur WHERE numCarteNavigo='" + IDnavigo + "' AND motDePasse='" + password + "';",function(error, rows, res){
 						if(error){
-							console.log("Mauvais password ou login");
+							console.log(error);
 							socket.emit('Error');
 						}
 						else if(rows.length <= 0){
-							console.log("rien");
+							console.log("Mauvais login ou mot de passe");
 							socket.emit('Error');
 						}
 						else
